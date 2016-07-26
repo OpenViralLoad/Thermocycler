@@ -103,6 +103,8 @@ public:
 #endif
   void command(uint8_t);
   uint8_t readButtons();
+  uint8_t _i2cAddr;
+  Adafruit_MCP23017 _i2c;
 
 private:
   void send(uint8_t, uint8_t);
@@ -125,8 +127,6 @@ private:
 
   uint8_t _numlines,_currline;
 
-  uint8_t _i2cAddr;
-  Adafruit_MCP23017 _i2c;
 };
 
 #endif

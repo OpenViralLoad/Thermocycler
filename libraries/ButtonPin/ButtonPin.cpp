@@ -3,14 +3,11 @@
 
 */
 
-#include "Arduino.h"
 #include "ButtonPin.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <Wire.h>
 
-ButtonPin::ButtonPin( int pin_ ) {
+ButtonPin::ButtonPin( int pin_, Adafruit_RGBLCDShield *lcd_  ) {
 
+	lcd = lcd_;
 	pin = pin_;
 
 	BPIN_SELECT = 0; 
@@ -27,8 +24,9 @@ ButtonPin::~ButtonPin() {
 float ButtonPin::voltage() {
 
 	// Analog Read
-		
 
+	uint8_t result = lcd->_i2c->digitalRead(3);
+	Serial.println( result );	
 	return 0.;
 
 }
