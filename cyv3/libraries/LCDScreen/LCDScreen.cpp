@@ -10,7 +10,7 @@ Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
 
 // Pin for button
 // 5 is arbitrary
-ButtonPin bpin = ButtonPin(5);
+ButtonPin bpin = ButtonPin( 5 );
 
 short tempFloor;
 short tempCeil; 
