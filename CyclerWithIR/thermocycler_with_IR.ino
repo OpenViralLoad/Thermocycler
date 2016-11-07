@@ -317,18 +317,10 @@ void PID_Redux( int setpt ) {
 void Maintain( int target )
 {
   boolean first_run = true;
-  if (target == TEMP_CEILING && DENAT) {
-    MAINTAIN_DURATION = MAINTAIN_DENAT;
-  }
-  else if (target == TEMP_CEILING) {
-    MAINTAIN_DURATION = MAINTAIN_CEILING;
-  }
-  else if (target == TEMP_FLOOR) {
-    MAINTAIN_DURATION = MAINTAIN_FLOOR;
-  }
+  int maintain_duration = 10*1000;
   Serial.println( "Maintaining temperature ..." );
   double time = millis();
-  double stopTime = time + MAINTAIN_DURATION;
+  double stopTime = time + maintain_duration;
   double previous = 0;
   double nextPrint = time + PRINT_DELAY;
   setLight( 1 ); // red
